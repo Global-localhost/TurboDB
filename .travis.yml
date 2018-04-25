@@ -4,4 +4,10 @@ branches:
 
 sudo: required
 dist: trusty
-language: python
+language: cpp
+script: scons
+
+
+compiler:
+  - gcc
+  - clang
