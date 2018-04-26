@@ -35,13 +35,14 @@ branches:
 notifications:
 email: true
 
-- mkdir -p build && cd build
-- cmake .. -DCMAKE_BUILD_TYPE=Debug
-- cmake --build .
-- cd ..
+before_script:
+   - mkdir -p build && cd build
+   - cmake .. -DCMAKE_BUILD_TYPE=Debug
+   - cmake --build .
+   - cd ..
 
 script:
-- cd build 
+   - cd build 
 
 after_success:
   - echo "success"
