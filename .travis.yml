@@ -10,28 +10,38 @@ compiler:
   - gcc
   - clang
 addons:
-  apt:
+   apt:
+    # List of whitelisted in travis packages for ubuntu-trusty can be found here:
+    #   https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-trusty
+    # List of whitelisted in travis apt-sources:
+    #   https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json
     sources:
     - ubuntu-toolchain-r-test
-    - llvm-toolchain-precise-3.8
+    - llvm-toolchain-trusty-5.0
     packages:
-    - gcc-6
-    - g++-6
-    - clang-3.8
+    - cmake
+    - gcc-7
+    - g++-7
+    - clang-5.0
 install:
-- "[ $CXX = gcc ] && export CXX=gcc-6 || true"
-- "[ $CXX = g++ ] && export CXX=g++-6 || true"
-- "[ $CXX = clang++ ] && export CXX=clang++-3.8 || true"
+- "[ $CXX = g++ ] && export CXX=g++-7 || true"
+- echo ${CXX}
+- ${CXX} --version
 
 branches:
   only:
     - master
 
 notifications:
-email: devteam@phonemetra.com
+email: true
+
+- mkdir -p build && cd build
+- cmake .. -DCMAKE_BUILD_TYPE=Debug
+- cmake --build .
+- cd ..
 
 script:
-  - make
+- cd build 
 
 after_success:
   - echo "success"
