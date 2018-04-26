@@ -28,7 +28,7 @@ branches:
     - master
 
 script:
-- if [ $TRAVIS_OS_NAME == linux ]; then make --llvm-config=llvm-config --cc=clang --cxx=clang++; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then make --llvm-config=llvm-config --cc=clang --cxx=clang++; fi
 
 after_success:
   - echo "success"
