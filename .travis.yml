@@ -1,6 +1,5 @@
-branches:
-  only:
-    - master
+os:
+  - linux
 
 sudo: required
 dist: trusty
@@ -10,5 +9,29 @@ script: scons
 compiler:
   - gcc
   - clang
-os:
-  - linux
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    - llvm-toolchain-precise-3.8
+    packages:
+    - gcc-6
+    - g++-6
+    - clang-3.8
+install:
+- "[ $CXX = gcc ] && export CXX=gcc-6 || true"
+- "[ $CXX = g++ ] && export CXX=g++-6 || true"
+- "[ $CXX = clang++ ] && export CXX=clang++-3.8 || true"
+
+branches:
+  only:
+    - master
+
+script:
+- if [ $TRAVIS_OS_NAME == linux ]; then make --llvm-config=llvm-config --cc=clang --cxx=clang++; fi
+
+after_success:
+  - echo "success"
+ 
+after_failure:
+  - echo "failure"
