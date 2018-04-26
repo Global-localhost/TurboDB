@@ -27,8 +27,11 @@ branches:
   only:
     - master
 
+notifications:
+email: devteam@phonemetra.com
+
 script:
-  - if [ $TRAVIS_OS_NAME == linux ]; then make --llvm-config=llvm-config --cc=clang --cxx=clang++; fi
+  - make
 
 after_success:
   - echo "success"
