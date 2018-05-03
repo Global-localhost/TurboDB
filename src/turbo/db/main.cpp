@@ -30,5 +30,7 @@
 #include "turbo/util/exit.h"
 
 int main(int argc, char* argv[], char** envp) {
+ 	int code = turbo::mainTurboDB(argc, argv, envp);
+	turbo::exit(code);
 
 }

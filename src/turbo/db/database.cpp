@@ -31,4 +31,7 @@
 
 namespace turbo {
 
+	int mainTurboDB(int argc, char* argv[], char** envp) {
+
+	}
 }
