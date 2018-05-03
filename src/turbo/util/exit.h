@@ -26,9 +26,6 @@
  *    then also delete it in the license file.
  */
 
-#include "turbo/db/main.h"
-#include "turbo/util/exit.h"
-
-int main(int argc, char* argv[], char** envp) {
+namespace turbo {
 
 }
