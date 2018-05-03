@@ -28,4 +28,6 @@
 
 namespace turbo {
 
+	void exit(int);
+
 }
