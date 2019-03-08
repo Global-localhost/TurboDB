@@ -13,14 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "turbo/base/init.h"
-#include "turbo/base/status.h"
-#include "turbo/db/main.h"
-
 
 namespace turbo {
 
-	int mainTurboDB(int argc, char* argv[], char** envp) {
-
-	}
 }
