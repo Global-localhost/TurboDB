@@ -17,5 +17,7 @@
 #include "turbo/base/status.h"
 
 namespace turbo {
-
+	
+	Status::Status() {}
+	Status::~Status() {}
 }

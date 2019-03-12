@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+#include <string>
+
 namespace turbo {
+
+	class Status {
+
+	public:
+		inline Status();
+		inline ~Status();
+		
+	};
 
 }
